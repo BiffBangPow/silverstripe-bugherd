@@ -1,0 +1,11 @@
+---
+Name: bugherd
+---
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - BiffBangPow\BugHerd\Extension\ConfigExtension
+
+SilverStripe\Control\Controller:
+  extensions:
+    - BiffBangPow\BugHerd\Extension\ControllerExtension
