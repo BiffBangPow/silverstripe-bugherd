@@ -19,7 +19,7 @@
   "license": "BSD-3-Clause",
   "autoload": {
     "psr-4": {
-      "BiffBangPow\\BugHerd": "src/"
+      "BiffBangPow\\BugHerd\\": "src/"
     }
   },
   "minimum-stability": "dev"
