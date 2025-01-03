@@ -4,6 +4,7 @@ namespace BiffBangPow\BugHerd\Extension;
 
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Extension;
+use SilverStripe\Dev\DevBuildController;
 use SilverStripe\Security\Security;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
@@ -33,6 +34,10 @@ class ControllerExtension extends Extension
 
     public function onAfterInit(): void
     {
+        if ($this->owner instanceof DevBuildController) {
+            return;
+        }
+
         $this->siteConfig = SiteConfig::current_site_config();
         if (!$this->siteConfig->EnableBugHerd || !$this->siteConfig->BugHerdProjectKey) {
             return;
