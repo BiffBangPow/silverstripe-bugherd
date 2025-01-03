@@ -2,9 +2,12 @@
 
 namespace BiffBangPow\BugHerd\Extension;
 
+use SilverStripe\Control\Controller;
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Extension;
 use SilverStripe\Dev\DevBuildController;
+use SilverStripe\Dev\DevelopmentAdmin;
+use SilverStripe\ORM\DatabaseAdmin;
 use SilverStripe\Security\Security;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
@@ -34,7 +37,13 @@ class ControllerExtension extends Extension
 
     public function onAfterInit(): void
     {
-        if ($this->owner instanceof DevBuildController) {
+        $skipClasses = [
+            DevBuildController::class,
+            DevelopmentAdmin::class,
+            DatabaseAdmin::class
+        ];
+
+        if (in_array(get_class($this->owner), $skipClasses)) {
             return;
         }
 
