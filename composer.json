@@ -1,0 +1,26 @@
+{
+  "name": "biffbangpow/silverstripe-bugherd",
+  "description": "Simple Bugherd integration for Silverstripe",
+  "type": "silverstripe-vendormodule",
+  "homepage": "https://github.com/BiffBangPow/silverstripe-bugherd",
+  "keywords": [
+    "silverstripe",
+    "testing"
+  ],
+  "authors": [
+    {
+      "name": "Tim Burt",
+      "email": "tim@biffbangpow.com"
+    }
+  ],
+  "require": {
+    "silverstripe/cms": "^4.0 | ^5.0"
+  },
+  "license": "BSD-3-Clause",
+  "autoload": {
+    "psr-4": {
+      "BiffBangPow\\BugHerd": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
